@@ -7,6 +7,20 @@ This is the [license-maven-plugin](http://www.mojohaus.org/license-maven-plugin/
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mojohaus/license-maven-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![The GNU Lesser General Public License, Version 3.0](https://img.shields.io/badge/license-LGPL3-blue.svg)](http://www.gnu.org/licenses/lgpl-3.0.txt)
 
+## Testing
+
+The test suite comprises unit and integration tests.   These can be run selectively using the standard Maven
+properties `skipTests` (skips the unit tests) and `skipITs` (skips the integration tests).
+
+To run a single unit test, use the standard Maven mechanism by setting property `test`.  For example:
+
+`mvn test -Dtest=ResolveDependenciesMojoTest -DskipITs`
+
+To run a single integration test, activate the profile `run-one-it` and specify the name of the test using property
+`itName`. For example:
+
+`mvn integration-test -DitName=add-third-party-excluded-included -Prun-one-it -DskipITs -DskipTests`
+
 ## Releasing
 
 * Make sure `gpg-agent` is running.
